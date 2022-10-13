@@ -1,13 +1,19 @@
 class Fish {
-  constructor(width, height, x, y, direction) {
-    this.width = width;
-    this.height = height;
-    this.x = x;
-    this.y = y;
-    this.direction = direction;
+  constructor(/*direction*/) {
+    this.x = 600;
+    this.y = 400;
+    this.width = 30;
+    this.height = 30;
+    //this.direction = direction;
   }
 
-  moveLeft() {
+  draw() {
+    const yellowfish = new Image();
+    yellowfish.src = "./images/Icons_04.png";
+    context.drawImage(yellowFish, this.x, this.y, this.width, this.height);
+  }
+
+  /*moveLeft() {
     this.direction = "left";
     if (this.x > 0) {
       this.x -= this.dx;
@@ -18,5 +24,5 @@ class Fish {
     if (this.x < canvas.width - this.width) {
       this.x += this.dx;
     }
-  }
+  }*/
 }
