@@ -1,5 +1,6 @@
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
+
 let interval;
 const gameArea = {
   frames: 120,
@@ -20,15 +21,16 @@ const gameArea = {
   },
 };
 
-const yellowFish = new Fish("left");
-
-
+const fishHook = new Hook();
+const yellowFish = new Fish();
 
 function updateGameArea() {
   gameArea.clear();
   if (gameArea.frames > 0) {
     gameArea.timer();
+    fishHook.draw();
     yellowFish.draw();
+    yellowFish.moveRight();
   } else {
     gameArea.stop();
     console.log("GAME OVER");
