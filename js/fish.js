@@ -4,7 +4,7 @@ class Fish {
     this.y = 430;
     this.width = 50;
     this.height = 50;
-    this.speedX = 70;
+    this.speedX = 50;
   }
 
   draw() {
@@ -16,6 +16,8 @@ class Fish {
   moveRight() {
     if (this.x < canvas.width - this.width) {
       this.x += this.speedX;
+    } else {
+      this.x = 0;
     }
   }
 }
