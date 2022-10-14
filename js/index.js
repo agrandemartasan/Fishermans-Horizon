@@ -19,8 +19,19 @@ const gameArea = {
     context.fillText(`Timer: ${time}`, 20, 75);
   },
 };
+
+const yellowFish = new Fish("left");
+
+
+
 function updateGameArea() {
   gameArea.clear();
-  gameArea.timer();
+  if (gameArea.frames > 0) {
+    gameArea.timer();
+    yellowFish.draw();
+  } else {
+    gameArea.stop();
+    console.log("GAME OVER");
+  }
 }
 gameArea.start();
