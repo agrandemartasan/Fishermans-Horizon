@@ -4,12 +4,6 @@ class Chronometer {
     this.intervalId = null;
   }
 
-  draw() {
-    context.font = "40px Arial";
-    context.fillStyle = "black";
-    context.fillText(`Timer: ${this.currentTime}`, 40, 100);
-  }
-
   start(printTimeCallback) {
     this.intervalId = setInterval(() => {
       this.currentTime--;
