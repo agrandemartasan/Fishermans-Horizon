@@ -3,6 +3,9 @@ const context = canvas.getContext("2d");
 
 let score = 0;
 let interval;
+
+let gameStarted = false;
+
 const gameArea = {
   frames: 12000,
   start: () => {
@@ -77,4 +80,6 @@ function updateGameArea() {
   }
 }
 
-gameArea.start();
+context.font = "50px Arial";
+context.fillStyle = "white";
+context.fillText(`Press space to start`, 255, 305);

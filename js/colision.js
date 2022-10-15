@@ -31,8 +31,13 @@ function detectCollision(fish, index) {
     console.log("No colision");
   }
 }
+
 window.addEventListener("keydown", (e) => {
   if (e.key === " ") {
+    if (gameStarted === false) {
+      gameArea.start();
+      gameStarted = true;
+    }
     if (fishNet.length > 0) {
       fishNet.forEach((fish) => {
         score += fish.score;
