@@ -5,9 +5,9 @@ let score = 0;
 
 let interval;
 const gameArea = {
-  frames: 120,
+  frames: 12000,
   start: () => {
-    interval = setInterval(updateGameArea, 1000);
+    interval = setInterval(updateGameArea, 1000 / 30);
   },
   stop: () => {
     clearInterval(interval);
@@ -16,29 +16,30 @@ const gameArea = {
     context.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
   },
   timer: () => {
-    const time = Math.floor(gameArea.frames--);
-    context.font = "40px Arial";
+    const time = gameArea.frames.toString().split("").slice(2).join("");
+    context.font = "20px Arial";
     context.fillStyle = "black";
-    context.fillText(`Timer: ${time}`, 20, 75);
+    context.fillText(`Velocity frames: ${time}`, 20, 75);
   },
 };
 
 const fishHook = new Hook();
-const yellowFish = new Fish();
+const yellowFish = new Fish(2);
 
 function animate() {
   context.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+  fishHook.draw();
   yellowFish.draw();
   yellowFish.moveRight();
+  gameArea.timer();
 }
 
-requestAnimationFrame(animate);
+//requestAnimationFrame(animate);
 
 function updateGameArea() {
+  gameArea.frames--;
   gameArea.clear();
   if (gameArea.frames > 0) {
-    gameArea.timer();
-    fishHook.draw();
     animate();
   } else {
     gameArea.stop();

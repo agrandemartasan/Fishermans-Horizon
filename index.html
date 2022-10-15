@@ -6,10 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/style.css" />
     <title>IH Game</title>
+    <script src="./js/chronometer.js" defer></script>
     <script src="./js/fish.js" defer></script>
     <script src="./js/index.js" defer></script>
   </head>
   <body>
     <canvas id="game" width="910" height="610"></canvas>
+    <section id="clock">
+      <div id="sphere">
+        <span id="minDec" class="number">0</span
+        ><span id="minUni" class="number">0</span><span>:</span
+        ><span id="secDec" class="number">0</span
+        ><span id="secUni" class="number">0</span>
+      </div>
+      <button id="startBtn" class="btn start">START GAME</button>
+    </div>
+    </section>
   </body>
 </html>

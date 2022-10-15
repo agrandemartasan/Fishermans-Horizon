@@ -1,10 +1,10 @@
 class Fish {
-  constructor() {
+  constructor(speedX) {
     this.x = 0;
     this.y = 430;
     this.width = 50;
     this.height = 50;
-    this.speedX = 50;
+    this.speedX = speedX;
   }
 
   draw() {
