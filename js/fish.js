@@ -36,9 +36,9 @@ class BlueFish extends Fish {
     this.score = 10;
   }
   draw() {
-    const yellowFish = new Image();
-    yellowFish.src = "./images/Icons_10.png";
-    context.drawImage(yellowFish, this.x, this.y, this.width, this.height);
+    const blueFish = new Image();
+    blueFish.src = "./images/Icons_10.png";
+    context.drawImage(blueFish, this.x, this.y, this.width, this.height);
   }
 }
 
@@ -48,9 +48,9 @@ class RedFish extends Fish {
     this.score = 15;
   }
   draw() {
-    const yellowFish = new Image();
-    yellowFish.src = "./images/Icons_07.png";
-    context.drawImage(yellowFish, this.x, this.y, this.width, this.height);
+    const redFish = new Image();
+    redFish.src = "./images/Icons_07.png";
+    context.drawImage(redFish, this.x, this.y, this.width, this.height);
   }
 }
 
