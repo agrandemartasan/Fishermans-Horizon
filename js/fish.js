@@ -1,13 +1,12 @@
 class Fish {
-  constructor(speedX) {
-    this.x = -300;
+  constructor(speedX, id) {
+    this.x = 10;
     this.y = 420;
     this.width = 50;
     this.height = 50;
     this.speedX = speedX;
+    this.id = id;
   }
-
-  
 
   moveRight() {
     if (this.x < canvas.width - this.width) {
@@ -19,8 +18,8 @@ class Fish {
 }
 
 class YellowFish extends Fish {
-  constructor (speedX) {
-    super(speedX);
+  constructor(speedX, id) {
+    super(speedX, id);
     this.score = 5;
   }
   draw() {
@@ -30,7 +29,7 @@ class YellowFish extends Fish {
   }
 }
 
-class BlueFish extends Fish {
+/*class BlueFish extends Fish {
   constructor (speedX) {
     super(speedX);
     this.score = 10;
@@ -52,7 +51,7 @@ class RedFish extends Fish {
     redFish.src = "./images/Icons_07.png";
     context.drawImage(redFish, this.x, this.y, this.width, this.height);
   }
-}
+}*/
 
 class Hook {
   constructor() {
@@ -68,4 +67,3 @@ class Hook {
     context.drawImage(fishHook, this.x, this.y, this.width, this.height);
   }
 }
-
