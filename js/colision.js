@@ -27,9 +27,9 @@ function detectCollision(fish, index) {
     redFish.y + redFish.height > fishHook.y
   ) {
     score += redFish.score;
-  } */ else {
+  } */ /* else {
     console.log("No colision");
-  }
+  } */
 }
 
 window.addEventListener("keydown", (e) => {

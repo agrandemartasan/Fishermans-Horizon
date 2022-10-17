@@ -2,6 +2,7 @@ const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
 
 let score = 0;
+let fishIdCount = 0;
 let interval;
 
 let gameStarted = false;
@@ -28,17 +29,24 @@ const gameArea = {
 };
 
 const fishHook = new Hook();
-let yellowFish, blueFish, redFish;
 
 function createFish() {
-  if (gameArea.frames % 120 === 0) {
-    yellowFish = new YellowFish(4, gameArea.frames);
-
-    gameArea.fishes.push(yellowFish);
-    /*blueFish = new BlueFish(2);
-    gameArea.fishes.push(blueFish);
-    redFish = new RedFish(3);
-    gameArea.fishes.push(redFish)*/
+  if (gameArea.fishes.length <= 10) {
+    if (gameArea.frames % 120 === 0) {
+      yellowFish = new YellowFish(2, fishIdCount);
+      fishIdCount++;
+      gameArea.fishes.push(yellowFish);
+    }
+    if (gameArea.frames % 100 === 0) {
+      blueFish = new BlueFish(3, fishIdCount);
+      fishIdCount++;
+      gameArea.fishes.push(blueFish);
+    }
+    if (gameArea.frames % 240 === 0) {
+      redFish = new RedFish(4, fishIdCount);
+      fishIdCount++;
+      gameArea.fishes.push(redFish);
+    }
   }
 }
 
@@ -58,6 +66,7 @@ function drawAndMoveFishes() {
   });
 }
 
+//Overall animations during game
 function animate() {
   context.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
   fishHook.draw();
@@ -65,8 +74,6 @@ function animate() {
   drawAndMoveFishes();
   gameArea.timer();
 }
-
-//requestAnimationFrame(animate);
 
 function updateGameArea() {
   gameArea.frames--;
@@ -80,6 +87,7 @@ function updateGameArea() {
   }
 }
 
+//Start game text
 context.font = "50px Arial";
 context.fillStyle = "white";
 context.fillText(`Press space to start`, 255, 305);
