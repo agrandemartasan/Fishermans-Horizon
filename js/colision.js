@@ -31,12 +31,19 @@ function detectCollision(fish, index) {
     console.log("No colision");
   } */
 }
-
+let myMusic;
+function playMusic() {
+  myMusic = new Audio(
+    "https://res.cloudinary.com/dr2lhtfs8/video/upload/v1666125846/Fishermans_horizon_zebqqi.mp3"
+  );
+  myMusic.play();
+}
 window.addEventListener("keydown", (e) => {
   if (e.key === " ") {
     if (gameStarted === false) {
       gameArea.start();
       gameStarted = true;
+      playMusic();
     }
     if (fishNet.length > 0) {
       fishNet.forEach((fish) => {

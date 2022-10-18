@@ -87,7 +87,22 @@ function updateGameArea() {
   }
 }
 
+/*window.addEventListener("DOMContentLoaded", event => {
+  const audio = document.querySelector("audio");
+  audio.volume = 0.5;
+  audio.play();
+});/*
+/*let = mySound
+function musicBg() {
+  mySound = new sound ("soundTest.mp3");
+  mySound.play();
+}
+musicBg();*/
+
 //Start game text
 context.font = "50px Arial";
 context.fillStyle = "white";
 context.fillText(`Press space to start`, 255, 305);
+
+
+
