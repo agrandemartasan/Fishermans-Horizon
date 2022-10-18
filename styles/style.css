@@ -9,6 +9,8 @@ body {
     justify-content:space-evenly;
     align-items: center;
     background-image: url("/images/under_the_waves_bg_only__.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 canvas {
