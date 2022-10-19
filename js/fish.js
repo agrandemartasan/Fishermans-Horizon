@@ -1,7 +1,7 @@
 //Main class
 class Fish {
   constructor(speedX, id) {
-    this.x = -10;
+    this.x = -5;
     this.y = 420;
     this.width = 50;
     this.height = 50;
