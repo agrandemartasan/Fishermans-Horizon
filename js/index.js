@@ -27,9 +27,9 @@ const gameArea = {
     context.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
   },
   drawScore: () => {
-    context.font = "bold 18px Arial";
+    context.font = "bold 25px Comic Sans";
     context.fillStyle = "white";
-    context.fillText(`Score: ${score}`, 325, 230);
+    context.fillText(`Score: ${score}`, 320, 230);
   },
   fishes: [],
 };
@@ -90,7 +90,7 @@ function drawStuff() {
 
   context.drawImage(treasureChest, 740, 515, 100, 85);
   context.drawImage(fishPoints, 760, 188, 120, 120);
-  context.font = "bold 18px Arial";
+  context.font = "bold 18px Comic Sans";
   context.fillStyle = "white";
   context.fillText(`Fish Points`, 770, 170);
 
@@ -121,8 +121,10 @@ function updateGameArea() {
     gameStarted = false;
     context.font = "50px Arial";
     context.fillStyle = "white";
-    context.fillText(`Well done! You got ${score} points!`, 152, 480);
-    context.fillText(`Press space to start again!`, 175, 530);
+    context.fillText(`Well done! You got ${score} points!`, 152, 525);
+    context.font = "25px Arial";
+
+    context.fillText(`(Press space to start again!)`, 300, 570);
   }
 }
 
@@ -133,11 +135,20 @@ context.fillText(`Press space to start!`, 215, 525);
 
 //Instructions
 context.font = "bold 20px Arial";
+context.globalAlpha = 0.5;
+context.fillStyle = "black";
+
+context.fillRect(595, 215, 270, 130);
+
 context.fillStyle = "white";
-context.fillText(`You have 2 minutes to`, 485, 60);
-context.fillText(`catch as many fishes as`, 485, 85);
-context.fillText(`possible. Be fast and`, 485, 110);
-context.fillText(`use SPACE to catch them!`, 485, 135);
-context.fillText(`Good luck!`, 485, 160);
-context.strokeStyle = "white";
-context.strokeRect(470, 30, 280, 140);
+context.globalAlpha = 1;
+context.fillText(`You have 2 minutes to`, 620, 240);
+context.fillText(`catch as many fishes as`, 620, 265);
+context.fillText(`possible. Be fast and`, 620, 290);
+context.fillText(`use SPACE to catch them!`, 610, 315);
+context.fillText(`Good luck!`, 680, 340);
+
+context.globalAlpha = 1
+context.strokeStyle = "black";
+context.lineWidth = 5;
+context.strokeRect(590, 210, 280, 140);
