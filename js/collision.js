@@ -22,10 +22,15 @@ function playMusic() {
 //Event Listener for space bar to start game and catch fishes
 window.addEventListener("keydown", (e) => {
   if (e.key === " ") {
-    if (gameStarted === false) {
+    if (!gameStarted) {
+      resetGame();
       gameArea.start();
       gameStarted = true;
-      playMusic();
+      chronometer.start(printTime);
+      if (!musicIsPlaying) {
+        playMusic();
+        musicIsPlaying = true;
+      }
     }
     if (fishNet.length > 0) {
       fishNet.forEach((fish) => {

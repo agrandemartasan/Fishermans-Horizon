@@ -5,25 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/style.css" />
-    <title>IH Game</title>
-    
+    <title>Fisherman's Horizon</title>
+
     <script src="./js/chronometer.js" defer></script>
     <script src="./js/fish.js" defer></script>
     <script src="./js/collision.js" defer></script>
     <script src="./js/index.js" defer></script>
-    
   </head>
   <body>
-    <canvas id="game" width="910" height="610"></canvas>
-    <section id="clock">
-      <div id="sphere">
-        <span id="minDec" class="number">0</span
-        ><span id="minUni" class="number">0</span><span>:</span
-        ><span id="secDec" class="number">0</span
-        ><span id="secUni" class="number">0</span>
-      </div>
-      <button id="startBtn" class="btn start">START GAME</button>
+    <div id="next-to-canvas">
+      <h1 id="game-name">Fisherman's Horizon</h1>
+      <p>
+        You have 2 minutes to catch as many fishes as possible. Be fast and use
+        SPACE to catch them! Good luck!
+      </p>
+      <section id="clock">
+        <div id="sphere">
+          <span id="minDec" class="number">0</span
+          ><span id="minUni" class="number">2</span><span>:</span
+          ><span id="secDec" class="number">0</span
+          ><span id="secUni" class="number">0</span>
+        </div>
+      </section>
     </div>
-    </section>
+    <canvas id="game" width="910" height="610"></canvas>
   </body>
 </html>

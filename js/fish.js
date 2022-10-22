@@ -64,14 +64,27 @@ class RedFish extends Fish {
 class Hook {
   constructor() {
     this.x = 535;
-    this.y = 415;
+    this.y = 410;
     this.width = 25;
     this.height = 25;
+    this.image = new Image();
+    this.image.src = "./images/fish-hook.png";
+    this.movement = 0.5;
   }
 
   draw() {
-    const fishHook = new Image();
-    fishHook.src = "./images/fish-hook.png";
-    context.drawImage(fishHook, this.x, this.y, this.width, this.height);
+    this.moveHook();
+    context.drawImage(this.image, this.x, this.y, this.width, this.height);
+    console.log(this.y);
+  }
+
+  moveHook() {
+    if (this.y === 420) {
+      this.movement = -0.5;
+    }
+    if (this.y === 410) {
+      this.movement = 0.5;
+    }
+    this.y += this.movement;
   }
 }

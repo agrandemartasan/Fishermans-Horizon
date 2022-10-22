@@ -1,14 +1,22 @@
+//Our founding fathers canvas and context
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
 
+//Declaring some important variables for the game
 let score = 0;
 let fishIdCount = 0;
 let interval;
-
 let gameStarted = false;
+const fishHook = new Hook();
+let fishNet = [];
+let musicIsPlaying = false;
 
+//Setting up overall time of game,
+//start and stop features,
+//clear canvas feature,
+//score and empty array for our fishes
 const gameArea = {
-  frames: 12000,
+  frames: 500,
   start: () => {
     interval = setInterval(updateGameArea, 30);
   },
@@ -18,8 +26,7 @@ const gameArea = {
   clear: () => {
     context.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
   },
-  timer: () => {
-    const time = gameArea.frames.toString().split("").slice(2).join("");
+  drawScore: () => {
     context.font = "bold 18px Arial";
     context.fillStyle = "white";
     context.fillText(`Score: ${score}`, 325, 230);
@@ -27,8 +34,14 @@ const gameArea = {
   fishes: [],
 };
 
-const fishHook = new Hook();
-let fishNet = [];
+//Function to reset the game
+function resetGame() {
+  gameArea.frames = 300;
+  gameArea.clear();
+  score = 0;
+  chronometer.currentTime = 120;
+  gameArea.fishes = [];
+}
 
 //Function to create fishes
 function createFish() {
@@ -66,7 +79,7 @@ function drawAndMoveFishes() {
   });
 }
 
-//Function to draw sea ground
+//Function to draw sea ground, treasure chest, fish points table
 function drawStuff() {
   const seaGround = new Image();
   seaGround.src = "./images/ocean-ground.png";
@@ -76,7 +89,7 @@ function drawStuff() {
   treasureChest.src = "./images/treasurechest2.png";
 
   context.drawImage(treasureChest, 740, 515, 100, 85);
-  context.drawImage(fishPoints, 770, 190, 120, 120);
+  context.drawImage(fishPoints, 760, 188, 120, 120);
   context.font = "bold 18px Arial";
   context.fillStyle = "white";
   context.fillText(`Fish Points`, 770, 170);
@@ -89,13 +102,14 @@ function drawStuff() {
 //Overall animations during game
 function animate() {
   context.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+  gameArea.drawScore();
   fishHook.draw();
   drawStuff();
   createFish();
   drawAndMoveFishes();
-  gameArea.timer();
 }
 
+//Canvas update
 function updateGameArea() {
   gameArea.frames--;
   gameArea.clear();
@@ -103,20 +117,27 @@ function updateGameArea() {
     animate();
   } else {
     gameArea.stop();
-    console.log("GAME OVER");
+    chronometer.stop();
+    gameStarted = false;
+    context.font = "50px Arial";
+    context.fillStyle = "white";
+    context.fillText(`Well done! You got ${score} points!`, 152, 480);
+    context.fillText(`Press space to start again!`, 175, 530);
   }
 }
 
 //Start game text
 context.font = "50px Arial";
 context.fillStyle = "white";
-context.fillText(`Press space to start !`, 215, 525);
-context.font = "20px Arial";
-context.fillStyle = "white";
+context.fillText(`Press space to start!`, 215, 525);
 
-context.fillText(`You have 2 minutes to`,485,60);
-context.fillText(`catch as many fishes as`,485,85);
-context.fillText(`possible, be fast and`,485,110);
-context.fillText(`use SPACE to catch them!`,485,135);
+//Instructions
+context.font = "bold 20px Arial";
+context.fillStyle = "white";
+context.fillText(`You have 2 minutes to`, 485, 60);
+context.fillText(`catch as many fishes as`, 485, 85);
+context.fillText(`possible. Be fast and`, 485, 110);
+context.fillText(`use SPACE to catch them!`, 485, 135);
+context.fillText(`Good luck!`, 485, 160);
 context.strokeStyle = "white";
-context.strokeRect(470,30,280,120);
+context.strokeRect(470, 30, 280, 140);

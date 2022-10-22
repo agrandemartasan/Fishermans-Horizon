@@ -32,6 +32,10 @@ class Chronometer {
     }
     return input;
   }
+
+  stop() {
+    clearInterval(this.intervalId);
+  }
 }
 
 const chronometer = new Chronometer();
@@ -62,10 +66,3 @@ function printSeconds() {
     chronometer.getSeconds()
   )[0];
 }
-
-//START GAME
-startBtn.addEventListener("click", () => {
-  if (startBtn.classList.contains("start")) {
-    chronometer.start(printTime);
-  }
-});
