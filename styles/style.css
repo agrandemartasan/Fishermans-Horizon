@@ -5,41 +5,46 @@
 }
 
 body {
+    width: 100%;
+    min-height:46.4vw;
     display: flex;
     justify-content:space-evenly;
     align-items: center;
-    background-image: url("../images/under_the_waves_bg_only__.png");
+    background: linear-gradient(180deg, rgba(139,165,136,1) 0%, rgba(169,108,33,1) 50%, rgba(64,22,45,1) 100%);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
 }
 
 canvas {
-    margin-top: 3em;
+    margin-top: 0em;
     border: 2px solid rgb(13, 83, 121);
     background-image: url("../images/bk-fish.webp");
     background-repeat: no-repeat;
 }
 
 #clock {
-    border: 2px solid #000;
+    border: 0px solid #000;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 250px;
+    height: 0px;
     margin: 0 auto;
     padding: 18px 0;
     width: 245px;
   }
   
   #sphere {
-    border: 2px solid #000;
-    border-radius: 20px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 45px;
     box-sizing: border-box;
-    font-family: "Digi";
-    font-size: 80px;
-    height: 210px;
-    margin: 0 auto;
-    padding: 35px 0;
+    font-size: 40px;
+    height: 55px;
+    margin: -618px -320px;
+    padding: 1px 0;
     position: relative;
     text-align: center;
-    width: 220px;
+    width: 113px;
   }
+ h1 {
+    margin-top: px;
+    text-align: center;
+ }

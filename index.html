@@ -13,13 +13,10 @@
     <script src="./js/index.js" defer></script>
   </head>
   <body>
-    <div id="next-to-canvas">
+    <div id="next-to-canvas" >
       <h1 id="game-name">Fisherman's Horizon</h1>
-      <p>
-        You have 2 minutes to catch as many fishes as possible. Be fast and use
-        SPACE to catch them! Good luck!
-      </p>
-      <section id="clock">
+      <canvas id="game" width="910" height="610"></canvas>
+       <section id="clock">
         <div id="sphere">
           <span id="minDec" class="number">0</span
           ><span id="minUni" class="number">2</span><span>:</span
@@ -28,6 +25,5 @@
         </div>
       </section>
     </div>
-    <canvas id="game" width="910" height="610"></canvas>
   </body>
 </html>

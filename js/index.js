@@ -16,9 +16,9 @@ let musicIsPlaying = false;
 //clear canvas feature,
 //score and empty array for our fishes
 const gameArea = {
-  frames: 500,
+  frames: 3660,
   start: () => {
-    interval = setInterval(updateGameArea, 30);
+    interval = setInterval(updateGameArea, 1000 / 30);
   },
   stop: () => {
     clearInterval(interval);
@@ -36,7 +36,7 @@ const gameArea = {
 
 //Function to reset the game
 function resetGame() {
-  gameArea.frames = 300;
+  gameArea.frames = 3660;
   gameArea.clear();
   score = 0;
   chronometer.currentTime = 120;
